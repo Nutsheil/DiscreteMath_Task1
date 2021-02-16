@@ -1,0 +1,52 @@
+This program is designed to perform operations on sets.
+The quotes indicate the names of the sets (setname) and elements (element), and they are required.
+The program accepts any number of spaces.
+
+Create "set"
+Creates a set named "set"
+
+Delete "set"
+Removes a set named "set"
+
+Sets
+Lists all available sets
+
+Add "set" "element"
+Adds an element named "element" to a set named "set"
+
+Remove "set" "element"
+Removes an element named "element" from a set named "setname"
+
+Check "setname" "element"
+Checks an element named "element" for belonging to a set named "set"
+
+Cardinality "set"
+Prints the cardinality of a set named "set"
+
+Print "setname"
+Prints all elements of a set named "set"
+
+Intersection "set_a" "set_b" "set_c"
+Writes to a set named "set_c" the result of intersection of the sets "set_a" and "set_b"
+If the set "set_c" already exists, then it will be recreated
+
+Union "set_a" "set_b" "set_c"
+Writes to a set named "set_c" the result of union of the sets "set_a" and "set_b"
+If the set "set_c" already exists, then it will be recreated
+
+Subtract "set_a" "set_b" "set_c"
+writes to a set named "set_c" the result of subtraction from the set "set_a" set "set_b"
+If the set "set_c" already exists, then it will be recreated
+
+SymmDiff "set_a" "set_b" "set_c"
+Writes to the set named "set_c" the result of the symmetric difference of the sets "set_a" and "set_b"
+If the set "set_c" already exists, then it will be recreated
+
+CheckSub "set_a" "set_b"
+Checks if the set "set_b" is a subset of the set "set_a"
+
+Exit
+Exits the program
+
+Help
+Prints to the console help for the available commands
