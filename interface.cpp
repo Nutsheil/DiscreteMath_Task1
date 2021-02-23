@@ -11,7 +11,7 @@
 using namespace std;
 
 enum myenum{
-    intersec, uni, subtract, symmDiff
+    intersec, uni, diff, symmDiff
 };
 
 list<string> split(const string &str)
@@ -20,6 +20,12 @@ list<string> split(const string &str)
     string item;
 
     auto i = str.begin();
+
+    for (; i!= str.end(); ++i)
+        if (*i < 0)
+            throw -2;
+
+    i = str.begin();
 
     for (; (i != str.end()) && isspace(*i); ++i);
 
@@ -109,7 +115,7 @@ void SetOperation(list<set>& sets, const list<string>& elems, myenum type)
             sets.insert(aaa, i->Union(*j, setname_c));
             cout << "\"" + setname_c + "\" = \"" + setname_a + "\" \\/ \"" + setname_b + "\"" << endl;
             break;
-        case subtract:
+        case diff:
             sets.insert(aaa, i->Subtract(*j, setname_c));
             cout << "\"" + setname_c + "\" = \"" + setname_a + "\" \\ \"" + setname_b + "\"" << endl;
             break;
@@ -160,7 +166,7 @@ void Delete(list<set>& sets, const list<string>& elems)
 void PrintSets(list<set>& sets)
 {
     for (auto i = sets.begin(); i != sets.end(); ++i)
-        cout << i->GetName() << endl;
+        cout << "\"" << i->GetName() << "\"" << endl;
 
     if (sets.size() == 0)
         cout << "No sets" << endl;
@@ -312,13 +318,14 @@ void Dialog()
 
         try {
             elems = split(s);
-        } catch (int n) {
+        } catch (int n)
+        {
             if (n == -1)
-            {
-                cout << "Wrong input (check quotes)" << endl;
-                cout << "----------" << endl;
-                continue;
-            }
+                cout << "Wrong input (Check quotes)" << endl;
+            if (n == -2)
+                cout << "Wrong input (Use only English letters)" << endl;
+            cout << "----------" << endl;
+            continue;
         }
 
         if (elems.size() == 0)
@@ -401,12 +408,12 @@ void Dialog()
             else
                 SetOperation(sets, elems, uni);
         }
-        else if (command == "Subtract") //------------------------------------------------------------------------------
+        else if (command == "Diff") //------------------------------------------------------------------------------
         {
             if (elems.size() != 3)
                 cout << "Wrong input (wrong number of arguments)" << endl;
             else
-                SetOperation(sets, elems, subtract);
+                SetOperation(sets, elems, diff);
         }
         else if (command == "SymmDiff") //------------------------------------------------------------------------------
         {

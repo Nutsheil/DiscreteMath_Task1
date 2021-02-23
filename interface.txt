@@ -34,7 +34,7 @@ Union "set_a" "set_b" "set_c"
 Writes to a set named "set_c" the result of union of the sets "set_a" and "set_b"
 If the set "set_c" already exists, then it will be recreated
 
-Subtract "set_a" "set_b" "set_c"
+Diff "set_a" "set_b" "set_c"
 writes to a set named "set_c" the result of subtraction from the set "set_a" set "set_b"
 If the set "set_c" already exists, then it will be recreated
 
@@ -42,7 +42,7 @@ SymmDiff "set_a" "set_b" "set_c"
 Writes to the set named "set_c" the result of the symmetric difference of the sets "set_a" and "set_b"
 If the set "set_c" already exists, then it will be recreated
 
-CheckSub "set_a" "set_b"
+CheckSubset "set_a" "set_b"
 Checks if the set "set_b" is a subset of the set "set_a"
 
 Exit

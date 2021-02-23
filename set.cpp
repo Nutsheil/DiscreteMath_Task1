@@ -63,7 +63,7 @@ void set::PrintAll() const
         return;
     }
     for (auto i = elements.begin(); i != elements.end(); ++i)
-        cout << *i << endl;
+        cout << "\"" << *i << "\"  -  " << (*i).size() << endl;
 }
 
 set set::Intersection(const set &b, const string &name) const
